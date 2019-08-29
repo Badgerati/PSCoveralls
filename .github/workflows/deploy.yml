@@ -1,0 +1,24 @@
+name: PSCoveralls Deploy
+
+on:
+  push:
+    branches:
+    - 'master'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Rename src directory
+      shell: pwsh
+      run: Rename-Item -Path ./src -NewName PSCoveralls -Force
+
+    - name: Publish the module
+      shell: pwsh
+      env:
+        PS_GALLERY_KEY: ${{ secrets.PS_GALLERY_KEY }}
+      run: Publish-Module -Path ./PSCoveralls -NuGetApiKey $env:PS_GALLERY_KEY
