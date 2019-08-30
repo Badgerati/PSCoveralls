@@ -10,7 +10,7 @@ The Pester test report that contains the CodeCoverage
 
 .PARAMETER ServiceName
 The Name of which CI Service the report is being generated
-Examples are: appveyor, travisci, github-actions, jenkins, etc
+Examples are: appveyor, travis-ci, github-actions, jenkins, etc
 
 .PARAMETER BranchName
 The Name of the branch for which the report is being generated
@@ -30,6 +30,7 @@ function New-CoverallsReport
         $Coverage,
 
         [Parameter(Mandatory=$true)]
+        [ValidateSet('appveyor', 'github-actions', 'jenkins', 'travis-ci', 'travis-pro')]
         [string]
         $ServiceName,
 

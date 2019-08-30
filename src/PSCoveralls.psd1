@@ -11,7 +11,7 @@
     RootModule = 'PSCoveralls.psm1'
 
     # Version number of this module.
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.0.1'
 
     # ID used to uniquely identify this module
     GUID = 'b309b7ed-ae95-40d5-919c-4366f6196ce6'
